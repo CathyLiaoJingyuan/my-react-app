@@ -1,73 +1,22 @@
-import React, { Component, Fragment } from 'react';
-import TodoItem from "./TodoItem.js"
-import "./style.css"
+import React, { Component, Fragment } from "react";
+import "antd/dist/antd.css";
+import { Input, Button } from "antd";
 
 class TodoList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputValue: '',
-            list: []
-        };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleBtnClick = this.handleBtnClick.bind(this);
-        this.handleItemDelete = this.handleItemDelete.bind(this);
-    }
-    render() {
-        return (
-            <Fragment>
-
-                <div>
-                    <label htmlFor="insertArea">Add</label>
-                    <input
-                        id="insertArea"
-                        className="input"
-                        type="text"
-                        value={this.state.inputValue}
-                        onChange={this.handleInputChange}
-                    />
-                    <button onClick={this.handleBtnClick}>
-                        Add to List
-                </button>
-                </div>
-                <ul>{
-                    this.state.list.map((item, index) => {
-                        return (
-                            <TodoItem content={item} index={index} deleteItem={this.handleItemDelete} />
-                        )
-                    })
-                }
-                </ul>
-            </Fragment>
-        )
-
-    }
-
-
-    handleInputChange(e) {
-        const value = e.target.value;
-        this.setState(() => {
-            return {
-                inputValue: value
-            }
-        });
-
-    }
-    handleBtnClick() {
-        this.setState({
-            list: [...this.state.list, this.state.inputValue],
-            inputValue: ''
-        });
-
-    }
-
-    handleItemDelete(index) {
-        const list = [...this.state.list];
-        list.splice(list[index], 1);
-        this.setState({
-            list: list
-        });
-    }
-
+  render() {
+    return (
+      //   <Fragment>
+      <div style={{ margin: "10px" }}>
+        <div>
+          <Input
+            placeholder="todo info"
+            style={{ width: "300px", margin: "10px" }}
+          />
+          <Button type="primary">Add to list</Button>
+        </div>
+      </div>
+      //   </Fragment>
+    );
+  }
 }
 export default TodoList;
