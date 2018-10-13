@@ -10,10 +10,16 @@ export default (state = defualtState, action) => {
     return newState;
   }
   if (action.type === "add_todo_item") {
-    console.log("hi");
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.push(newState.inputValue);
     newState.inputValue = "";
+    return newState;
+  }
+
+  if (action.type === "handle_item_delete") {
+    console.log("deleting now");
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.list.splice(action.index, 1);
     return newState;
   }
   return state;
