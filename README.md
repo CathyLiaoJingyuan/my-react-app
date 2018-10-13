@@ -1,4 +1,4 @@
 # my-react-app
 
-react
-Ant Design
+react+redux;
+ant designs
