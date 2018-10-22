@@ -35,5 +35,11 @@ export default (state = defualtState, action) => {
     return newState;
     // console.log("hi");
   }
+
+  // if (action.type === GET_INIT_LIST) {
+  //   const newState = JSON.parse(JSON.stringify(state));
+  //   newState.list = action.data;
+  //   return newState;
+  // }
   return state;
 };

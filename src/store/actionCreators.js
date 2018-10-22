@@ -1,8 +1,8 @@
-import axios from "axios";
 import {
   CHANGE_INPUT_VALUE,
   ADD_TODO_ITEM,
   DELETE_TODO_ITEM,
+  GET_INIT_LIST,
   INIT_LIST_ITEM
 } from "./actionTypes";
 
@@ -21,12 +21,15 @@ export const initListAction = data => ({
   type: INIT_LIST_ITEM,
   data
 });
-export const getTodolist = () => {
-  return dispatch => {
-    axios.get("/todolist.json").then(function(response) {
-      const data = response.data;
-      const action = initListAction(data);
-      dispatch(action);
-    });
-  };
-};
+
+export const getInitList = () => ({ type: GET_INIT_LIST });
+
+// export const getTodolist = () => {
+//   return dispatch => {
+//     axios.get("/todolist.json").then(function(response) {
+//       const data = response.data;
+//       const action = initListAction(data);
+//       dispatch(action);
+//     });
+//   };
+// };
